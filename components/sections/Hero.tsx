@@ -22,7 +22,7 @@ export function Hero() {
                 style={{
                     backgroundImage: "url('/hero.png')",
                     // push subject (model) to the right so copy sits on clean space
-                    backgroundPosition: "90% 20%",
+                    backgroundPosition: "80% 2%",
                 }}
             />
 

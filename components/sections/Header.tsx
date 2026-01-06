@@ -20,7 +20,7 @@ export function Header() {
             )}
         >
             <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-                <div className="text-xs tracking-[0.32em]">AVAL</div>
+                <div className="text-xs tracking-[0.32em]">THE HOUSE OF AVAL</div>
 
                 <nav className="hidden items-center gap-7 text-xs tracking-[0.18em] text-[#141414]/75 md:flex">
                     <a className="hover:text-[#141414]" href="#heritage">

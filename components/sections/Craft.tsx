@@ -1,14 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { reveal } from "@/lib/motion";
 
 export function Craft() {
     const tiles = [
-        "Handwork · Engineered",
-        "Embellishment · Controlled",
-        "Finish · Repeatable",
-        "Scale · Consistent",
+        { label: "Handwork · Engineered", src: "/craft/handwork.png" },
+        { label: "Embellishment · Controlled", src: "/craft/embellishment.png" },
+        { label: "Finish · Repeatable", src: "/craft/finish.png"},
+        { label: "Scale · Consistent", src: "/craft/scale.png" },
     ];
 
     return (
@@ -58,7 +59,7 @@ export function Craft() {
 
                         <div className="md:col-span-7">
                             <div className="grid gap-4 sm:grid-cols-2">
-                                {tiles.map((label, i) => (
+                                {tiles.map(({ label, src }, i) => (
                                     <motion.div
                                         key={label}
                                         variants={reveal}
@@ -69,10 +70,25 @@ export function Craft() {
                                             <div className="absolute -left-16 -top-20 h-56 w-56 rounded-full bg-[#F6F1E8]/10 blur-3xl" />
                                             <div className="absolute -right-10 bottom-[-40px] h-72 w-72 rounded-full bg-[#F6F1E8]/10 blur-3xl" />
                                         </div>
+
                                         <div className="relative">
                                             <div className="text-xs tracking-[0.22em] text-[#F6F1E8]/65">{label}</div>
-                                            <div className="mt-10 h-28 rounded-xl border border-[#F6F1E8]/10 bg-gradient-to-b from-[#F6F1E8]/10 to-transparent" />
-                                            <div className="mt-4 text-xs text-[#F6F1E8]/55">(Replace with macro photography)</div>
+
+                                            {/* IMAGE SLOT (replaces placeholder) */}
+                                            <div className="mt-10 relative h-28 overflow-hidden rounded-xl border border-[#F6F1E8]/10">
+                                                <Image
+                                                    src={src}
+                                                    alt={label}
+                                                    fill
+                                                    sizes="(min-width: 768px) 280px, 90vw"
+                                                    className="object-cover object-center opacity-90 transition duration-300 group-hover:opacity-100 group-hover:scale-[1.02]"
+                                                />
+                                                {/* subtle consistency overlay */}
+                                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/25" />
+                                            </div>
+
+                                            {/* optional helper text — remove when images final */}
+                                            <div className="mt-4 text-xs text-[#F6F1E8]/55">Macro detail</div>
                                         </div>
                                     </motion.div>
                                 ))}
