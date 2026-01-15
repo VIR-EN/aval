@@ -30,7 +30,7 @@ export function Craft() {
                         <div className="md:col-span-5">
                             <p className="text-sm leading-7 text-[#F6F1E8]/80">
                                 We specialize in hand embroidery, beadwork, sequins, stones, and surface textures that look rich
-                                and elevated — while being engineered for dependable production.
+                                and elevated, while being engineered for dependable production.
                             </p>
 
                             <ul className="mt-8 space-y-3 text-sm text-[#F6F1E8]/75">
@@ -87,8 +87,7 @@ export function Craft() {
                                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/25" />
                                             </div>
 
-                                            {/* optional helper text — remove when images final */}
-                                            <div className="mt-4 text-xs text-[#F6F1E8]/55">Macro detail</div>
+
                                         </div>
                                     </motion.div>
                                 ))}

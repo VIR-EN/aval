@@ -18,7 +18,7 @@ export function Advantages() {
         },
         {
             title: "Speed & Flexibility",
-            subtitle: "Small MOQs, capsules, seasonal drops, tight sampling timelines — hands-on development.",
+            subtitle: "Small MOQs, capsules, seasonal drops, tight sampling timelines, and hands-on development.",
             image: "/advantages/speed.PNG",
         },
         {
@@ -54,7 +54,7 @@ export function Advantages() {
                             </p>
                             <p className="mt-5 text-sm leading-7 text-[#2a2a2a]/80">
                                 We help convert ideas into production-ready garments without
-                                compromising the aesthetic — and without introducing avoidable
+                                compromising the aesthetic, and without introducing avoidable
                                 cost, complexity, or risk.
                             </p>
                         </div>
