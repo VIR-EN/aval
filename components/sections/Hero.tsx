@@ -20,7 +20,7 @@ export function Hero() {
                 aria-hidden
                 className="absolute inset-0 bg-cover bg-no-repeat"
                 style={{
-                    backgroundImage: "url('/hero.png')",
+                    backgroundImage: "url('/Hero.png')",
                     // push subject (model) to the right so copy sits on clean space
                     backgroundPosition: "80% 2%",
                 }}
