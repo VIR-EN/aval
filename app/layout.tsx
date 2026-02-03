@@ -35,14 +35,31 @@ export const metadata: Metadata = {
     ],
     authors: [{ name: "The House of Avaal" }],
     creator: "The House of Avaal",
-    metadataBase: new URL("https://yourdomain.com"),
+    metadataBase: new URL("https://aval-ashy.vercel.app"),
     openGraph: {
+        title:
+            "The House of Avaal — Luxury Fashion Design, Development & Manufacturing Partner",
+        description:
+            "A full-service luxury fashion design, development, and manufacturing partner working across prêt, bridal, eveningwear, prom, and contemporary collections.",
+        url: "https://aval-ashy.vercel.app",
+        siteName: "The House of Avaal",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "The House of Avaal",
+            },
+        ],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
         title:
             "The House of Avaal — Luxury Fashion Design & Manufacturing Partner",
         description:
-            "A full-service luxury fashion design, development, and manufacturing partner working across prêt, bridal, eveningwear, and contemporary collections.",
-        siteName: "The House of Avaal",
-        type: "website",
+            "A full-service luxury fashion design and manufacturing partner for global fashion brands.",
+        images: ["/og-image.png"],
     },
 };
 
