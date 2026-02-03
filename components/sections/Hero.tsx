@@ -32,7 +32,7 @@ export function Hero() {
                 className="absolute inset-0 bg-gradient-to-r from-[#F6F1E8]/95 via-[#F6F1E8]/55 to-transparent"
             />
 
-            {/* subtle texture overlay */}
+            {/* subtle texture overlay, comment */}
             <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-multiply"
