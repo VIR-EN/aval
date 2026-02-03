@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         siteName: "The House of Avaal",
         images: [
             {
-                url: "/og-img.png",   // 🔥 MUST MATCH FILE NAME
+                url: "/og-img.jpg",   // 🔥 MUST MATCH FILE NAME
                 width: 1200,
                 height: 630,
                 alt: "The House of Avaal",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
             "The House of Avaal — Luxury Fashion Design & Manufacturing Partner",
         description:
             "A full-service luxury fashion design and manufacturing partner for global fashion brands.",
-        images: ["/og-img.png"], // 🔥 MUST MATCH FILE NAME
+        images: ["/og-img.jpg"], // 🔥 MUST MATCH FILE NAME
     },
 };
 
