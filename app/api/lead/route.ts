@@ -2,9 +2,11 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { LeadEmail } from "@/components/LeadEmail";
 
+export const runtime = "nodejs"; // IMPORTANT: force Node (Resend needs this)
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Simple in-memory rate limit
+// ---------------- Rate limit ----------------
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 function rateLimit(ip: string, limit = 5, windowMs = 10 * 60 * 1000) {
@@ -13,15 +15,16 @@ function rateLimit(ip: string, limit = 5, windowMs = 10 * 60 * 1000) {
 
     if (!entry || entry.resetAt <= now) {
         buckets.set(ip, { count: 1, resetAt: now + windowMs });
-        return { ok: true };
+        return true;
     }
 
-    if (entry.count >= limit) return { ok: false };
+    if (entry.count >= limit) return false;
 
     entry.count += 1;
-    return { ok: true };
+    return true;
 }
 
+// ---------------- Validators ----------------
 function looksLikeEmail(s: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 }
@@ -31,13 +34,25 @@ function looksLikePhone(s: string) {
     return /^[+]?\d{8,16}$/.test(cleaned);
 }
 
+// ---------------- Handler ----------------
 export async function POST(req: Request) {
     try {
-        const from = process.env.LEADS_FROM_EMAIL;
-        const to = process.env.LEADS_TO_EMAIL;
+        if (!process.env.RESEND_API_KEY) {
+            throw new Error("Missing RESEND_API_KEY");
+        }
 
-        if (!from || !to) {
-            throw new Error("Missing email configuration");
+        const from = process.env.LEADS_FROM_EMAIL || "Aval <onboarding@resend.dev>";
+        const rawTo = process.env.LEADS_TO_EMAIL;
+
+        if (!rawTo) {
+            throw new Error("Missing LEADS_TO_EMAIL");
+        }
+
+        // ALWAYS send `to` as an array (Resend-safe)
+        const to = rawTo.split(",").map(e => e.trim()).filter(Boolean);
+
+        if (to.length === 0) {
+            throw new Error("LEADS_TO_EMAIL resolved to empty array");
         }
 
         const ip =
@@ -45,7 +60,7 @@ export async function POST(req: Request) {
             req.headers.get("x-real-ip") ||
             "unknown";
 
-        if (!rateLimit(ip).ok) {
+        if (!rateLimit(ip)) {
             return NextResponse.json(
                 { ok: false, error: "Rate limited" },
                 { status: 429 }
@@ -59,9 +74,9 @@ export async function POST(req: Request) {
         const contact = String(body.contact || "").trim();
         const category = String(body.category || "").trim();
         const message = String(body.message || "").trim();
-        const website = String(body.website || "").trim();
+        const website = String(body.website || "").trim(); // honeypot
 
-        // Honeypot (silent success)
+        // Honeypot → silent success
         if (website) {
             return NextResponse.json({ ok: true, honeypot: true });
         }
@@ -76,22 +91,42 @@ export async function POST(req: Request) {
 
         const subject = `New Aval inquiry — ${name}${company ? ` (${company})` : ""}`;
 
-        const { error } = await resend.emails.send({
-            from,
-            to,
+        const { data, error } = await resend.emails.send({
+            from,                     // SAFE sender
+            to,                       // ARRAY, not string
             subject,
-            react: LeadEmail({ name, company, contact, category, message }),
-            replyTo: looksLikeEmail(contact) ? contact : undefined,
+            react: LeadEmail({
+                name,
+                company,
+                contact,
+                category,
+                message,
+            }),
+            // 🚫 NO replyTo — this caused your 422s
         });
 
         if (error) {
-            console.error("Resend error:", error);
-            return NextResponse.json({ ok: false }, { status: 500 });
+            console.error(
+                "RESEND ERROR (FULL):",
+                JSON.stringify(error, null, 2)
+            );
+
+            return NextResponse.json(
+                { ok: false, resendError: error },
+                { status: 500 }
+            );
         }
 
-        return NextResponse.json({ ok: true });
-    } catch (err) {
-        console.error("Lead API crash:", err);
-        return NextResponse.json({ ok: false }, { status: 500 });
+        return NextResponse.json({ ok: true, data });
+    } catch (err: any) {
+        console.error(
+            "LEAD API CRASH:",
+            err?.message || err
+        );
+
+        return NextResponse.json(
+            { ok: false, error: err?.message || "Server error" },
+            { status: 500 }
+        );
     }
 }
