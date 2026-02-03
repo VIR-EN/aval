@@ -33,7 +33,7 @@ export function Heritage() {
                     viewport={{ once: true, amount: 0.28 }}
                 >
                     <p className="text-xs tracking-[0.32em] text-[#141414]/60">
-                        THE HOUSE OF AVAL
+                        THE HOUSE OF AVAAL
                     </p>
 
                     <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
@@ -50,7 +50,7 @@ export function Heritage() {
 
                             <p className="mt-5 text-sm leading-7 text-[#2a2a2a]/80">
                                 <span className="text-[#141414] font-medium">
-                                    Aval exists to bring certainty to garment production.
+                                    Avaal exists to bring certainty to garment production.
                                 </span>
                             </p>
 

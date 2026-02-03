@@ -84,7 +84,7 @@ export function Collaboration() {
                         <p className="text-xs tracking-[0.32em] text-[#F6F1E8]/65">COLLABORATION</p>
                         <h2 className="mt-4 text-3xl leading-tight md:text-4xl">Begin a conversation.</h2>
                         <p className="mt-6 text-sm leading-7 text-[#F6F1E8]/80">
-                            Tell us about your brand, category, and goals. We’ll respond with how Aval can support your vision — from
+                            Tell us about your brand, category, and goals. We’ll respond with how Avaal can support your vision — from
                             development through delivery.
                         </p>
                     </div>

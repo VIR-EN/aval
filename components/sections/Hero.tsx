@@ -71,7 +71,7 @@ export function Hero() {
                     className="max-w-3xl"
                 >
                     <p className="mb-4 text-xs tracking-[0.32em] text-[#2a2a2a]/70">
-                        THE HOUSE OF AVAL
+                        THE HOUSE OF AVAAL
                     </p>
 
                     <h1 className="text-4xl leading-[1.08] tracking-tight md:text-6xl md:leading-[1.03]">
@@ -80,7 +80,7 @@ export function Hero() {
                     </h1>
 
                     <p className="mt-6 max-w-2xl text-sm leading-7 text-[#2a2a2a]/80 md:text-base">
-                        Aval is a system-driven production partner to premium fashion brands —
+                        Avaal is a system-driven production partner to premium fashion brands —
                         bringing clarity, control, and consistency to complex garment manufacturing.
                     </p>
 

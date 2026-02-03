@@ -18,7 +18,7 @@ export function Footer() {
 
                     {/* Left */}
                     <div>
-                        © {new Date().getFullYear()} THE HOUSE OF AVAL. All rights reserved.
+                        © {new Date().getFullYear()} THE HOUSE OF AVAAL. All rights reserved.
                     </div>
 
                     {/* Right */}

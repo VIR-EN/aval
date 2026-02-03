@@ -34,8 +34,8 @@ export function Header() {
             >
                 <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
                     {/* Logo */}
-                    <Link href="/" className="text-xs tracking-[0.32em]">
-                        THE HOUSE OF AVAL
+                    <Link href="/" className="text-sm md:text-base tracking-[0.28em]">
+                        THE HOUSE OF AVAAL
                     </Link>
 
                     {/* Desktop nav */}

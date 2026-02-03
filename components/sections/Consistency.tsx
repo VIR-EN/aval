@@ -35,7 +35,7 @@ export function Consistency() {
                             <div className="mt-8 rounded-2xl border border-[#141414]/12 bg-white/35 p-7 md:p-8">
                                 <p className="text-xs tracking-[0.32em] text-[#141414]/55">ONE-LINE POSITIONING</p>
                                 <p className="mt-4 text-base leading-7 text-[#141414] md:text-lg">
-                                    The House of Aval is a system-driven production partner bringing certainty and transparency to premium garment manufacturing.
+                                    The House of Avaal is a system-driven production partner bringing certainty and transparency to premium garment manufacturing.
                                 </p>
                             </div>
                         </div>
