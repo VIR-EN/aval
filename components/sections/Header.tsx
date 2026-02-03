@@ -90,12 +90,6 @@ export function Header() {
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-40 bg-[#F6F1E8] flex flex-col px-6 pt-24"
                 >
-                    <button
-                        onClick={() => setOpen(false)}
-                        className="absolute top-6 right-6 text-xs tracking-[0.22em]"
-                    >
-                        CLOSE
-                    </button>
 
                     <nav className="flex flex-col gap-6 text-sm tracking-[0.22em]">
                         <Link href="/" onClick={() => setOpen(false)}>
