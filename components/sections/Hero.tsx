@@ -51,7 +51,7 @@ export function Hero() {
                     background:
                         "radial-gradient(circle at 30% 30%, rgba(160,140,110,0.45), transparent 60%)",
                 }}
-            />
+            />   
             <motion.div
                 aria-hidden
                 className="absolute -right-60 bottom-[-140px] h-[680px] w-[680px] rounded-full blur-3xl opacity-35"

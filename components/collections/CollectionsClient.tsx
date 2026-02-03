@@ -21,7 +21,7 @@ const categories: Category[] = [
         images: Array.from({ length: 10 }, (_, i) =>
             `/collections/bridal/${String(i + 1).padStart(2, "0")}.png`
         ),
-        count:8,
+        count: 8,
     },
     {
         slug: "evening",
@@ -41,7 +41,7 @@ const categories: Category[] = [
         images: Array.from({ length: 10 }, (_, i) =>
             `/collections/pret/${String(i + 1).padStart(2, "0")}.png`
         ),
-        count:7,
+        count: 7,
     },
     {
         slug: "prom",
@@ -51,7 +51,7 @@ const categories: Category[] = [
         images: Array.from({ length: 10 }, (_, i) =>
             `/collections/prom/${String(i + 1).padStart(2, "0")}.png`
         ),
-        count:5,
+        count: 5,
     },
     {
         slug: "contemporary",
@@ -61,7 +61,7 @@ const categories: Category[] = [
         images: Array.from({ length: 10 }, (_, i) =>
             `/collections/contemporary/${String(i + 1).padStart(2, "0")}.png`
         ),
-        count:7,
+        count: 7,
     },
     {
         slug: "concept-swatches",
@@ -71,16 +71,14 @@ const categories: Category[] = [
         images: Array.from({ length: 10 }, (_, i) =>
             `/collections/concept/${String(i + 1).padStart(2, "0")}.png`
         ),
-        count:7,
+        count: 7,
     },
 ];
-
 
 export default function CollectionsClient() {
     return (
         <section className="bg-[#F6F1E8] text-[#141414]">
             <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-                {/* Header */}
                 <motion.div
                     variants={reveal}
                     initial="hidden"
@@ -99,7 +97,6 @@ export default function CollectionsClient() {
                     </p>
                 </motion.div>
 
-                {/* Category cards */}
                 <div className="mt-16 grid gap-12 md:grid-cols-2">
                     {categories.map((cat, i) => (
                         <CategoryCard key={cat.slug} cat={cat} index={i} />
@@ -138,48 +135,55 @@ function CategoryCard({
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col rounded-2xl border border-[#141414]/12 bg-white/40 p-6 md:p-8 backdrop-blur-sm"
         >
-            {/* Portrait viewer */}
+            {/* Image viewer */}
             <div className="group relative mb-6 overflow-hidden border border-[#141414]/10 bg-[#F6F1E8]">
-                {/* Tall portrait frame */}
-                <div className="flex w-full justify-center overflow-hidden px-1 py-1">
-                <img
+                <motion.div
+                    className="flex w-full justify-center overflow-hidden px-1 py-1"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    style={{ touchAction: "pan-x" }}
+                    onDragEnd={(_, info) => {
+                        if (info.offset.x < -60) next();
+                        if (info.offset.x > 60) prev();
+                    }}
+                >
+                    <img
                         src={images[active]}
                         alt=""
                         className="block max-h-[680px] w-full object-contain"
                         loading="lazy"
                     />
-                </div>
+                </motion.div>
 
-                {/* Navigation (only if >1 image) */}
                 {total > 1 && (
                     <>
                         <button
                             onClick={prev}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/70 px-3 py-1 text-sm text-[#141414] opacity-0 transition group-hover:opacity-100 hover:bg-white"
+                            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/70 px-3 py-1 text-sm text-[#141414]
+                         opacity-100 md:opacity-0 md:group-hover:opacity-100 transition hover:bg-white"
                         >
                             ‹
                         </button>
                         <button
                             onClick={next}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/70 px-3 py-1 text-sm text-[#141414] opacity-0 transition group-hover:opacity-100 hover:bg-white"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/70 px-3 py-1 text-sm text-[#141414]
+                         opacity-100 md:opacity-0 md:group-hover:opacity-100 transition hover:bg-white"
                         >
                             ›
                         </button>
                     </>
                 )}
 
-                {/* Index indicator */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/70 px-3 py-1 text-xs tracking-wide text-[#141414]">
                     {active + 1} / {total}
                 </div>
             </div>
 
             <h3 className="text-lg">{cat.title}</h3>
-
             <p className="mt-3 text-sm leading-7 text-[#2a2a2a]/75">
                 {cat.description}
             </p>
         </motion.div>
     );
 }
-
