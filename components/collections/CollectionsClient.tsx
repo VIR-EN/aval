@@ -15,7 +15,7 @@ type Category = {
 const categories: Category[] = [
     {
         slug: "bridal",
-        title: "Bridal",
+        title: "Bridal / Bridal Party",
         description:
             "Statement bridal pieces developed with high handwork density, structural integrity, and repeatable embellishment techniques suitable for scaled production.",
         images: Array.from({ length: 10 }, (_, i) =>
@@ -61,7 +61,7 @@ const categories: Category[] = [
         images: Array.from({ length: 10 }, (_, i) =>
             `/collections/contemporary/${String(i + 1).padStart(2, "0")}.png`
         ),
-        count:8,
+        count:7,
     },
     {
         slug: "concept-swatches",

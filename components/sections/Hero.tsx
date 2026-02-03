@@ -26,13 +26,13 @@ export function Hero() {
                 }}
             />
 
-            {/* LEFT SCRIM (this is the key) */}
+            {/* LEFT SCRIM */}
             <div
                 aria-hidden
                 className="absolute inset-0 bg-gradient-to-r from-[#F6F1E8]/95 via-[#F6F1E8]/55 to-transparent"
             />
 
-            {/* your subtle texture overlay (keep) */}
+            {/* subtle texture overlay */}
             <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-multiply"
@@ -42,7 +42,7 @@ export function Hero() {
                 }}
             />
 
-            {/* glow blobs (keep) */}
+            {/* glow blobs */}
             <motion.div
                 aria-hidden
                 className="absolute -left-44 top-8 h-[560px] w-[560px] rounded-full blur-3xl opacity-40"
@@ -75,14 +75,13 @@ export function Hero() {
                     </p>
 
                     <h1 className="text-4xl leading-[1.08] tracking-tight md:text-6xl md:leading-[1.03]">
-                        Where design vision meets{" "}
-                        <span className="italic">disciplined craftsmanship</span>.
+                        Certainty and transparency{" "}
+                        <span className="italic">in an uncertain industry</span>.
                     </h1>
 
                     <p className="mt-6 max-w-2xl text-sm leading-7 text-[#2a2a2a]/80 md:text-base">
-                        A strategic production partner to premium fashion brands — translating
-                        ideas into refined, handcrafted garments that balance beauty, quality,
-                        and commercial success.
+                        Aval is a system-driven production partner to premium fashion brands —
+                        bringing clarity, control, and consistency to complex garment manufacturing.
                     </p>
 
                     <div className="mt-10 flex flex-wrap items-center gap-3">

@@ -5,10 +5,10 @@ import { reveal } from "@/lib/motion";
 
 export function Consistency() {
     const gains = [
-        "✔ A reliable extension of your design team",
+        "✔ A reliable extension of your design and production team",
         "✔ Better margins through smarter craftsmanship",
         "✔ Fewer production surprises",
-        "✔ Faster go-to-market",
+        "✔ Transparency at every stage of production",
         "✔ A supplier who protects your brand image",
     ];
 
@@ -35,8 +35,7 @@ export function Consistency() {
                             <div className="mt-8 rounded-2xl border border-[#141414]/12 bg-white/35 p-7 md:p-8">
                                 <p className="text-xs tracking-[0.32em] text-[#141414]/55">ONE-LINE POSITIONING</p>
                                 <p className="mt-4 text-base leading-7 text-[#141414] md:text-lg">
-                                    The House of Aval partners with global fashion brands to translate design vision into refined,
-                                    handcrafted garments that balance beauty, quality, and commercial success.
+                                    The House of Aval is a system-driven production partner bringing certainty and transparency to premium garment manufacturing.
                                 </p>
                             </div>
                         </div>

@@ -7,7 +7,7 @@ export function Heritage() {
     const timeline = [
         {
             k: "CRAFT",
-            v: "Specialists in hand embroidery, beadwork, sequins, stones, and surface texture.",
+            v: "Specialists in embroidery, beadwork, sequins, stones, and surface texture.",
         },
         {
             k: "DESIGN",
@@ -32,28 +32,33 @@ export function Heritage() {
                     whileInView="show"
                     viewport={{ once: true, amount: 0.28 }}
                 >
-                    <p className="text-xs tracking-[0.32em] text-[#141414]/60">THE HOUSE OF AVAL</p>
+                    <p className="text-xs tracking-[0.32em] text-[#141414]/60">
+                        THE HOUSE OF AVAL
+                    </p>
+
                     <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-                        More than manufacturing. A value partner.
+                        Clarity, where it matters most.
                     </h2>
 
                     <div className="mt-10 grid gap-10 md:grid-cols-12">
                         <div className="md:col-span-5">
                             <p className="text-sm leading-7 text-[#2a2a2a]/80">
-                                At The House of Aval, we work at the intersection of{" "}
-                                <span className="text-[#141414]">craft</span>,{" "}
-                                <span className="text-[#141414]">design sensitivity</span>, and{" "}
-                                <span className="text-[#141414]">commercial intelligence</span>.
+                                Garment production is complex, unpredictable, and often opaque.
+                                Brands don’t fail because they lack ideas. They fail when production
+                                becomes unclear, uncontrolled, and full of late surprises.
                             </p>
 
                             <p className="mt-5 text-sm leading-7 text-[#2a2a2a]/80">
-                                We are not just manufacturers. We are problem solvers for brands who want beauty without chaos,
-                                and craftsmanship without risk.
+                                <span className="text-[#141414] font-medium">
+                                    Aval exists to bring certainty to garment production.
+                                </span>
                             </p>
 
                             <p className="mt-5 text-sm leading-7 text-[#2a2a2a]/80">
-                                A strategic partner to premium fashion brands for{" "}
-                                <span className="text-[#141414]">55 years</span>.
+                                Through system-driven processes, transparent communication, and deep
+                                manufacturing expertise, we help brands move from concept to scaled
+                                production with clarity, control, and consistency even when things
+                                don’t go perfectly.
                             </p>
                         </div>
 
@@ -69,7 +74,9 @@ export function Heritage() {
                                         {it.k}
                                     </div>
                                     <div className="h-px flex-1 self-center bg-[#141414]/15" />
-                                    <div className="w-full max-w-md text-sm leading-7 text-[#2a2a2a]/80">{it.v}</div>
+                                    <div className="w-full max-w-md text-sm leading-7 text-[#2a2a2a]/80">
+                                        {it.v}
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
