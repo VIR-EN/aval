@@ -20,33 +20,41 @@ export const metadata: Metadata = {
     },
     description:
         "The House of Avaal is a full-service luxury fashion design, development, and manufacturing partner working across luxury prêt, bridal, eveningwear, prom, and contemporary categories for global brands.",
-    metadataBase: new URL("https://aval-ashy.vercel.app"),
+
+    // ✅ MUST BE YOUR REAL DOMAIN
+    metadataBase: new URL("https://thehouseofavaal.com"),
+
     openGraph: {
         title:
             "The House of Avaal — Luxury Fashion Design, Development & Manufacturing Partner",
         description:
             "A full-service luxury fashion design, development, and manufacturing partner working across prêt, bridal, eveningwear, prom, and contemporary collections.",
-        url: "https://aval-ashy.vercel.app",
+
+        // ✅ REAL DOMAIN
+        url: "https://thehouseofavaal.com",
         siteName: "The House of Avaal",
+
         images: [
             {
-                url: "/og-img.jpg",   // 🔥 MUST MATCH FILE NAME
+                url: "/og-img.jpg",
                 width: 1200,
                 height: 630,
-                alt: "The House of Avaal",
+                alt: "The House of Avaal — Luxury Fashion",
             },
         ],
         type: "website",
     },
+
     twitter: {
         card: "summary_large_image",
         title:
             "The House of Avaal — Luxury Fashion Design & Manufacturing Partner",
         description:
             "A full-service luxury fashion design and manufacturing partner for global fashion brands.",
-        images: ["/og-img.jpg"], // 🔥 MUST MATCH FILE NAME
+        images: ["/og-img.jpg"],
     },
 };
+
 
 
 export default function RootLayout({
